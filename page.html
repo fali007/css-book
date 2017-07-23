@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head>
+	<title>book</title>
+</head>
+<style type="text/css">
+.container{
+	top: 100px;
+	width: 400px;
+	height: 400px;
+}	
+.page{
+	left: 108px;
+	top: 108px;
+	width: 350px;
+	height: 400px;
+	background-color: yellow;
+	position: absolute;
+	z-index: 10;
+	border:1px solid #363636;
+	text-align: center;
+}
+.trans:hover{
+transform: rotateY(130deg);
+}
+.trans::after{
+transform: rotateY(130deg);
+}
+.page1{
+	position: absolute;
+	top: 114px;
+	left: 114px;
+	background-color: red;
+	width: 350px;
+	height: 400px;
+	z-index: 9;
+}
+.page2{
+	position: absolute;
+	top: 118px;
+	left: 118px;
+	background-color: blue;
+	width: 350px;
+	height: 400px;
+}
+.trans{
+transition: all 2s ease-out;
+	transform-origin: 0px;
+
+}
+</style>
+<body>
+<div class="container">
+	<div class="page">abcd</div>
+	<div class="page1"></div>
+		<div class="page2"></div>
+
+</div>
+</body>
+<script type="text/javascript">
+		$(document).ready(function(){
+$(".page").hover(function(){
+	$(".page").addClass("trans").delay(2000, function(){
+	$(".page1").addClass("trans").delay(2000, function(){
+	$(".page2").addClass("trans").delay(2000)});
+	});
+});
+		});
+
+</script>
+</html>
